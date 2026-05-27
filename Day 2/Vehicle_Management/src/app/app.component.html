@@ -1,0 +1,42 @@
+<h1>This is my app component.html</h1>
+<app-car></app-car>
+<app-truck></app-truck>
+
+My age is: {{age}} <br>
+My name is : {{name}}
+<h1 [style.color]="col">Hello World</h1>
+<button [hidden]="hiddenflag" (click)="ChangeColour()">Change Colour</button> <br> <br>
+<button (click)="ChangeTextColour()">Change Text Colour</button> <br> <br> 
+<button (click)="myColourChangeMethod()">my Colour Change Method</button> <br> <br>
+<button (click)="myColourChangeCheckMethod('red')">my ColourChangeCheck Method</button> <br> <br>
+<button (click)="ToggleColour()">Toggle Colour</button> <br> <br>
+
+<input [(ngModel)]="name"/>
+<p>{{ name }}</p>
+
+<br>
+<br>
+
+<input type="text" [(ngModel)]="country">
+<br><br>
+<div class="box" [style.backgroundColor]="boxColor"></div>
+<br>
+<button (click)="showColor()">Show Colour</button> <br> <br>
+
+<input type="text" [(ngModel)]="uid" placeholder="User Id"> <br> <br>
+<input type="password" [(ngModel)]="pass" placeholder="Password"> <br> <br>
+<button (click)="Validate()">Check</button> <br> <br>
+<div *ngIf="message" class="alert" [style.backgroundColor]="alertColor">
+{{message}}
+</div>
+
+
+
+
+
+
+
+
+
+
+
