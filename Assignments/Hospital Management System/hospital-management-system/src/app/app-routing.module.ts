@@ -15,7 +15,9 @@ import { EmergencyContactComponent } from './components/emergency-contact/emerge
 
 const routes: Routes = [
 
-  { path: '', component: DashboardComponent },
+  { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
+
+  { path: 'dashboard', component: DashboardComponent },
 
   { path: 'admin-login', component: AdminLoginComponent },
 

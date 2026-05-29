@@ -20,7 +20,8 @@ export class DoctorLoginComponent {
 
       alert("Doctor Login Successful");
 
-      this.router.navigate(['/']);
+      localStorage.setItem('role', 'doctor');
+      this.router.navigate(['/doctor-dashboard']);
 
     }
 

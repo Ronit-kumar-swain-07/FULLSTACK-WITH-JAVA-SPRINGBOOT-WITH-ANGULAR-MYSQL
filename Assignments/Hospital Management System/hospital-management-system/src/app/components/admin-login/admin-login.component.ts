@@ -20,7 +20,8 @@ export class AdminLoginComponent {
 
       alert("Login Successful");
 
-      this.router.navigate(['/']);
+      localStorage.setItem('role', 'admin');
+      this.router.navigate(['/admin-dashboard']);
 
     }
 

@@ -18,7 +18,9 @@ export class PatientLoginComponent {
     if(this.patientid=="patient" && this.password=="1234"){
 
       alert("Patient Login Successful");
-      this.router.navigate(['/']);
+
+      localStorage.setItem('role', 'patient');
+      this.router.navigate(['/patient-dashboard']);
     }
 
     else{

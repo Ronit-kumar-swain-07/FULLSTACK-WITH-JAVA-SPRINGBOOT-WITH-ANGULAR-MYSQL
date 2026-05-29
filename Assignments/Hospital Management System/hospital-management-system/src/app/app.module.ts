@@ -18,6 +18,9 @@ import { RoomAllocationComponent } from './components/room-allocation/room-alloc
 import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
 import { SearchComponent } from './components/search/search.component';
 import { EmergencyContactComponent } from './components/emergency-contact/emergency-contact.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
+import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { EmergencyContactComponent } from './components/emergency-contact/emerge
     RoomAllocationComponent,
     MedicalReportsComponent,
     SearchComponent,
-    EmergencyContactComponent
+    EmergencyContactComponent,
+    AdminDashboardComponent,
+    DoctorDashboardComponent,
+    PatientDashboardComponent
   ],
   imports: [
     BrowserModule,
