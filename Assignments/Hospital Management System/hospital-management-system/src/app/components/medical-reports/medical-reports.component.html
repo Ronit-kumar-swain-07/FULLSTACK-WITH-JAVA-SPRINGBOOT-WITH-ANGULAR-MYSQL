@@ -1,0 +1,53 @@
+<div class="container">
+
+  <div class="card shadow p-5 mt-4">
+
+    <h2 class="text-center text-dark mb-4">
+      Medical Reports
+    </h2>
+
+    <!-- Message -->
+    <div *ngIf="message" class="alert alert-success text-center">
+      {{message}}
+    </div>
+
+    <!-- Patient Name -->
+    <label class="form-label">Patient Name</label>
+
+    <input type="text"
+      class="form-control mb-3"
+      placeholder="Enter Patient Name"
+      [(ngModel)]="report.patientName">
+
+    <!-- Report Type -->
+    <label class="form-label">Report Type</label>
+
+    <select class="form-select mb-3"
+      [(ngModel)]="report.reportType">
+
+      <option value="Blood Test">Blood Test</option>
+      <option value="X-Ray">X-Ray</option>
+      <option value="MRI Scan">MRI Scan</option>
+
+    </select>
+
+    <!-- Report Details -->
+    <label class="form-label">Report Details</label>
+
+    <textarea class="form-control mb-4"
+      rows="5"
+      placeholder="Enter Report Details"
+      [(ngModel)]="report.details">
+    </textarea>
+
+    <!-- Button -->
+    <button class="btn btn-dark w-100"
+      (click)="saveReport()">
+
+      Save Report
+
+    </button>
+
+  </div>
+
+</div>

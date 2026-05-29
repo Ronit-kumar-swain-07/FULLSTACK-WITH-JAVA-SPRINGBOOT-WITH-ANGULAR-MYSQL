@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="card shadow p-5 mt-4">
+
+        <h2 class="text-center text-info mb-4">
+            Prescription Management
+        </h2>
+
+        <!-- Message -->
+        <div *ngIf="message" class="alert alert-success text-center">
+            {{message}}
+        </div>
+
+        <!-- Patient Name -->
+        <label class="form-label">Patient Name</label>
+
+        <input type="text" class="form-control mb-3" placeholder="Enter Patient Name"
+            [(ngModel)]="prescription.patientName">
+
+        <!-- Doctor Name -->
+        <label class="form-label">Doctor Name</label>
+
+        <input type="text" class="form-control mb-3" placeholder="Enter Doctor Name"
+            [(ngModel)]="prescription.doctorName">
+
+        <!-- Medicines -->
+        <label class="form-label">Medicines</label>
+
+        <textarea class="form-control mb-3" rows="4" placeholder="Enter Medicines" [(ngModel)]="prescription.medicines">
+    </textarea>
+
+        <!-- Advice -->
+        <label class="form-label">Advice</label>
+
+        <textarea class="form-control mb-4" rows="3" placeholder="Doctor Advice" [(ngModel)]="prescription.advice">
+    </textarea>
+
+        <!-- Button -->
+        <button class="btn btn-info w-100" (click)="savePrescription()">
+
+            Save Prescription
+
+        </button>
+
+    </div>
+
+</div>

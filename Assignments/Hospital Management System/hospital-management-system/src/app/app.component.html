@@ -1,0 +1,163 @@
+<!-- Top Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
+
+  <!-- Left side -->
+  <div class="d-flex align-items-center gap-2">
+
+    <!-- Sidebar Toggle -->
+    <button class="btn btn-outline-light" (click)="toggleSidebar()">
+      ☰
+    </button>
+
+    <h3 class="text-warning m-0">
+      Hospital Management
+    </h3>
+
+  </div>
+
+  <!-- Right side -->
+  <div class="d-flex align-items-center gap-4">
+
+    <!-- Time -->
+    <h5 class="text-white m-0">
+      {{currentTime}}
+    </h5>
+
+    <!-- PROFILE SECTION -->
+    <div class="profile-wrapper">
+
+      <!-- Circle Profile Image -->
+      <img
+        src="https://erp.silicon.ac.in/uploads/student_photo/SITBBS_B.TECH_2024-2028/CSE/24BCSH03/24BCSH03_64X64.jpg"
+        class="profile-icon"
+        alt="profile"
+        (click)="toggleProfileCard()"
+      >
+
+      <!-- Dropdown Card -->
+      <div class="profile-card" *ngIf="showProfileCard">
+
+        <!-- Profile Header -->
+        <div class="text-center">
+          <img src="https://erp.silicon.ac.in/uploads/student_photo/SITBBS_B.TECH_2024-2028/CSE/24BCSH03/24BCSH03_64X64.jpg" class="profile-big-img" alt="profile">
+
+          <h6 class="mt-2 mb-0">Ronit Kumar Swain</h6>
+          <small class="text-muted">Student</small>
+        </div>
+
+        <hr>
+
+        <!-- Details -->
+        <p class="mb-1">SIC: 24BCSH03</p>
+        <p class="mb-1">Year: 2nd</p>
+        <p class="mb-1">Semester: 4th Sem</p>
+
+        <hr>
+
+        <!-- Actions -->
+        <button class="btn btn-sm btn-primary w-100 mb-2">
+          My Profile
+        </button>
+
+        <button class="btn btn-sm btn-danger w-100">
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar bg-dark text-white" [class.active]="isSidebarOpen">
+
+  <ul class="nav flex-column p-3">
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="" (click)="closeSidebar()">
+        <i class="bi bi-speedometer2 me-2"></i>
+        Dashboard
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/admin-login" (click)="closeSidebar()">
+        <i class="bi bi-person-lock me-2"></i>
+        Admin Login
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/doctor-login" (click)="closeSidebar()">
+        <i class="bi bi-heart-pulse me-2"></i>
+        Doctor Login
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/patient-login" (click)="closeSidebar()">
+        <i class="bi bi-person me-2"></i>
+        Patient Login
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/patient-registration" (click)="closeSidebar()">
+        <i class="bi bi-person-plus me-2"></i>
+        Registration
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/appointment" (click)="closeSidebar()">
+        <i class="bi bi-calendar-check me-2"></i>
+        Appointment
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/billing" (click)="closeSidebar()">
+        <i class="bi bi-cash-stack me-2"></i>
+        Billing
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/prescription" (click)="closeSidebar()">
+        <i class="bi bi-capsule-pill me-2"></i>
+        Prescription
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/room-allocation" (click)="closeSidebar()">
+        <i class="bi bi-house-door me-2"></i>
+        Room Allocation
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/reports" (click)="closeSidebar()">
+        <i class="bi bi-file-earmark-text me-2"></i>
+        Reports
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" routerLink="/emergency" (click)="closeSidebar()">
+        <i class="bi bi-hospital me-2"></i>
+        Emergency
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- Main Content -->
+<div class="content p-4">
+  <router-outlet></router-outlet>
+</div>

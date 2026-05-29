@@ -1,0 +1,109 @@
+<div class="container">
+
+    <div class="card shadow p-4 mt-4">
+
+        <h2 class="text-center text-primary mb-4">
+            Patient Records
+        </h2>
+
+        <!-- Input Section -->
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <input type="text" class="form-control mb-3" placeholder="Enter Name" [(ngModel)]="name">
+
+            </div>
+
+            <div class="col-md-4">
+
+                <input type="number" class="form-control mb-3" placeholder="Enter Age" [(ngModel)]="age">
+
+            </div>
+
+            <div class="col-md-4">
+
+                <input type="text" class="form-control mb-3" placeholder="Enter Disease" [(ngModel)]="disease">
+
+            </div>
+
+        </div>
+
+        <!-- Add Button -->
+
+        <button class="btn btn-success mb-4" (click)="addPatient()">
+            Add Patient
+        </button>
+
+        <input type="text" class="form-control mb-4" placeholder="Search Patient Name" [(ngModel)]="searchText">
+
+        <!-- Table -->
+
+        <table class="table table-bordered table-hover text-center">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Age
+                    </th>
+
+                    <th>
+                        Disease
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let patient of patients; let i=index"
+                    [hidden]="searchText && !patient.name.toLowerCase().includes(searchText.toLowerCase())">
+
+                    <td>
+                        {{patient.name}}
+                    </td>
+
+                    <td>
+                        {{patient.age}}
+                    </td>
+
+                    <td>
+                        {{patient.disease}}
+                    </td>
+
+                    <td>
+                        <button class="btn btn-primary btn-sm me-2" (click)="editPatient(i)">
+
+                            Edit
+
+                        </button>
+
+                        <button class="btn btn-danger btn-sm" (click)="deletePatient(i)">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

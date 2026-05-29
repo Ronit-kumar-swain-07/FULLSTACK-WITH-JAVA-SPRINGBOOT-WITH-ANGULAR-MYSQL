@@ -1,0 +1,70 @@
+<div class="container">
+
+    <div class="card shadow p-5 mt-4">
+
+        <h2 class="text-center text-secondary mb-4">
+            Room Allocation
+        </h2>
+
+        <!-- Message -->
+        <div *ngIf="message" class="alert alert-success text-center">
+            {{message}}
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <label class="form-label">Patient Name</label>
+
+                <input type="text" class="form-control mb-3" placeholder="Enter Patient Name"
+                    [(ngModel)]="room.patientName">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label">Room Number</label>
+
+                <input type="text" class="form-control mb-3" placeholder="Enter Room Number"
+                    [(ngModel)]="room.roomNumber">
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <label class="form-label">Room Type</label>
+
+                <select class="form-select mb-3" [(ngModel)]="room.roomType">
+
+                    <option value="General">General</option>
+                    <option value="ICU">ICU</option>
+                    <option value="Private">Private</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label">Admission Date</label>
+
+                <input type="date" class="form-control mb-3" [(ngModel)]="room.admissionDate">
+
+            </div>
+
+        </div>
+
+        <button class="btn btn-secondary w-100" (click)="allocateRoom()">
+
+            Allocate Room
+
+        </button>
+
+    </div>
+
+</div>

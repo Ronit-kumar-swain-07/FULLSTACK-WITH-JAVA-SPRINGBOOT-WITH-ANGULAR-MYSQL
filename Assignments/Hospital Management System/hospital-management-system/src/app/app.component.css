@@ -1,0 +1,99 @@
+/* Sidebar */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 56px;
+
+    left: -250px;
+
+    width: 250px;
+
+    height: 100%;
+
+    transition: 0.4s;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+}
+
+/* Sidebar Open */
+
+.sidebar.active {
+
+    left: 0;
+}
+
+/* Sidebar Links */
+
+.sidebar .nav-link {
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-bottom: 5px;
+}
+
+/* Hover Effect */
+
+.sidebar .nav-link:hover {
+
+    background: rgba(255, 255, 255, 0.2);
+
+    padding-left: 18px;
+}
+
+/* Main Content */
+
+.content {
+
+    transition: 0.4s;
+}
+
+/* Navbar */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1100;
+}
+
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #ffc107;
+}
+
+.profile-card {
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 230px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.profile-big-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffc107;
+}

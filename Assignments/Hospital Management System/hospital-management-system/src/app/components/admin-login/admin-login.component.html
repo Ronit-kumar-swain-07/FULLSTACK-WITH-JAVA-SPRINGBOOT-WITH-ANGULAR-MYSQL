@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="card shadow p-5 mt-5 w-50 mx-auto">
+
+        <h2 class="text-center text-primary mb-4">
+            Admin Login
+        </h2>
+
+        <input type="text"
+                class="form-control mb-3"
+                placeholder="Enter Username"
+                [(ngModel)]="username">
+
+        <input type="password"
+                class="form-control mb-3"
+                placeholder="Enter Password"
+                [(ngModel)]="password">
+
+        <button class="btn btn-primary w-100"
+                (click)="login()">
+            Login
+        </button>
+
+    </div>
+
+</div>
