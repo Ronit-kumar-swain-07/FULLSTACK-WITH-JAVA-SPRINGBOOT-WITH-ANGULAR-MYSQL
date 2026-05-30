@@ -12,10 +12,12 @@ import { PrescriptionManagementComponent } from './components/prescription-manag
 import { RoomAllocationComponent } from './components/room-allocation/room-allocation.component';
 import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
 import { EmergencyContactComponent } from './components/emergency-contact/emergency-contact.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
+import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 
 const routes: Routes = [
-
-  { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
   { path: 'dashboard', component: DashboardComponent },
 
@@ -37,13 +39,17 @@ const routes: Routes = [
 
   { path: 'reports', component: MedicalReportsComponent },
 
-  { path: 'emergency', component: EmergencyContactComponent }
+  { path: 'emergency', component: EmergencyContactComponent },
 
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+
+  { path: 'doctor-dashboard', component: DoctorDashboardComponent },
+
+  { path: 'patient-dashboard', component: PatientDashboardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}
