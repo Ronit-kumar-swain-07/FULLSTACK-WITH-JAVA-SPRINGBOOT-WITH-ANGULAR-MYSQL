@@ -1,0 +1,3 @@
+Git and GitHub
+Git Repo is a storage place where we save our codes and programs
+if both developers develop same prject then time will be loss
