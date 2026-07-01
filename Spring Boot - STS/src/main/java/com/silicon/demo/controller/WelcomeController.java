@@ -141,4 +141,11 @@ public class WelcomeController {
 	}
 	
 	
+	@Operation(summary = "This Method Saves the Student Detail.")
+	@PostMapping("/saveStudent")
+	public StudentDetails saveStudentDetails(@RequestBody StudentDetails studentDetails) {
+		
+
+	return studentService.saveStudentDetails(studentDetails);
+	}
 }
