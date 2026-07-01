@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,11 +29,9 @@ import io.swagger.v3.oas.annotations.Operation;
 public class WelcomeController {
 //	Methods
 
-	
 	@Autowired
 	StudentService studentService;
-	
-	
+
 	@GetMapping("/welcome")
 	public String welcome() {
 		System.out.println("Welcome Called");
@@ -78,74 +78,82 @@ public class WelcomeController {
 
 	@GetMapping("/getAllSchoolData")
 	@Operation(summary = "Get School info ", description = "This API throw school info")
-	
-	public ParentResponse getAllSchoolData() 
-	{
 
-	ParentResponse parent = new ParentResponse();
+	public ParentResponse getAllSchoolData() {
 
-	//details of school object need to create and set
-	SchoolDetails schoolDetails = new SchoolDetails();
+		ParentResponse parent = new ParentResponse();
 
-	schoolDetails.setSchoolld(101);
-	schoolDetails.setSchoolName("Silicon Public School");
-	schoolDetails.setPrincipalName("Rajesh Kumar");
-	schoolDetails.setEmail("info@siliconschool.com");
-	schoolDetails.setTotalStudents(1200);
-	schoolDetails.setTotalTeachers(60);
-	schoolDetails.setBoardType("CBSE");
-	
+		// details of school object need to create and set
+		SchoolDetails schoolDetails = new SchoolDetails();
 
-	//details of section object need to create and set
-	SectionDetails sectionDetails = new SectionDetails();
-	sectionDetails.setRegnNum(33334);
-	sectionDetails.setStudentName("Raj Kishore");
-	
-	
-	//details of transport object need to create and set
-	TransportDetails transportDetails = new TransportDetails();
-	transportDetails.setDriverName("Kabir");
-	transportDetails.setVehicleNumber("MH04GH5988");
-	
-	
-	//set the three object into parent object
+		schoolDetails.setSchoolld(101);
+		schoolDetails.setSchoolName("Silicon Public School");
+		schoolDetails.setPrincipalName("Rajesh Kumar");
+		schoolDetails.setEmail("info@siliconschool.com");
+		schoolDetails.setTotalStudents(1200);
+		schoolDetails.setTotalTeachers(60);
+		schoolDetails.setBoardType("CBSE");
 
-	parent.setDetails(schoolDetails);
-	parent.setSectionDetails(sectionDetails);
-	parent.setTransportDetails(transportDetails);
-	
-	
-	
-	return parent;
-	
-	
+		// details of section object need to create and set
+		SectionDetails sectionDetails = new SectionDetails();
+		sectionDetails.setRegnNum(33334);
+		sectionDetails.setStudentName("Raj Kishore");
+
+		// details of transport object need to create and set
+		TransportDetails transportDetails = new TransportDetails();
+		transportDetails.setDriverName("Kabir");
+		transportDetails.setVehicleNumber("MH04GH5988");
+
+		// set the three object into parent object
+
+		parent.setDetails(schoolDetails);
+		parent.setSectionDetails(sectionDetails);
+		parent.setTransportDetails(transportDetails);
+
+		return parent;
+
 	}
-	
-	
+
 	@Operation(summary = "Get all Student Details", description = "This API throws All the Student Details.")
 	@GetMapping("/getAllStudent")
 	public List<StudentDetails> getAllStudentDetails() {
-		
+
 		List<StudentDetails> listofStudentDetails = studentService.getStudentDetails();
-		
+
 		return listofStudentDetails;
 	}
-	
-	
+
 	@GetMapping("/getStudentByID/{id}")
 	public StudentDetails getStudentsByID(@PathVariable int id) {
-		
-		StudentDetails studentDetails =  studentService.getStudentByID(id);
-		
+
+		StudentDetails studentDetails = studentService.getStudentByID(id);
+
 		return studentDetails;
 	}
-	
-	
+
 	@Operation(summary = "This Method Saves the Student Detail.")
 	@PostMapping("/saveStudent")
 	public StudentDetails saveStudentDetails(@RequestBody StudentDetails studentDetails) {
-		
 
-	return studentService.saveStudentDetails(studentDetails);
+		return studentService.saveStudentDetails(studentDetails);
+	}
+
+	@Operation(summary = "This Method Updates the Student Detail.")
+	@PutMapping("/update")
+	public StudentDetails updateStudentDetails(@RequestBody StudentDetails studentDetails) {
+
+		return studentService.updateStudentDetails(studentDetails);
+
+	}
+
+	@Operation(summary = "This Method Deletes the Student Detail.")
+	@DeleteMapping("/deleteStudent/{id}")
+
+	public String deleteStudent(@PathVariable int id) {
+
+		studentService.deleteStudentDetail(id);
+
+		return "Student deleted successfully.";
+
 	}
 }
