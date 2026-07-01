@@ -1,8 +1,7 @@
 package com.silicon.demo.service;
 
-import java.util.List;
-
 import com.silicon.demo.model.StudentDetails;
+import java.util.List;
 
 public interface StudentService {
 
@@ -16,4 +15,9 @@ public interface StudentService {
 	
 	StudentDetails saveStudentDetails(StudentDetails student);
 	
+	
+	StudentDetails updateStudentDetails(StudentDetails student);
+
+
+	void deleteStudentDetail(int id);
 }
