@@ -10,25 +10,33 @@ import com.silicon.demo.repo.StudentRepository;
 import com.silicon.demo.service.StudentService;
 
 @Service
-public class StudentImpl implements StudentService{
+public class StudentImpl implements StudentService {
 
-	StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
+
+    public StudentImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    @Override
+    public List<StudentDetails> getStudentDetails() {
+        return studentRepository.findAll();
+    }
+
+    @Override
+    public StudentDetails getStudentByID(int id) {
+
+        Optional<StudentDetails> studentDetails = studentRepository.findById(id);
+
+        return studentDetails.orElse(null);
+    }
+
+    
 	
 	@Override
-	public List<StudentDetails> getStudentDetails() {
-		List<StudentDetails> listofsStudentDetails = studentRepository.findAll();
-		return listofsStudentDetails;
-	}
-
-	@Override
-	public StudentDetails getStudentByID(int id) {
+	public StudentDetails saveStudentDetails(StudentDetails student) {
 		
-		Optional<StudentDetails> studentDetails =  studentRepository.findById(id);
 		
-		if(studentDetails.isPresent()) {
-			return studentDetails.get();
-		}
-		
-		return null;
+		return studentRepository.save(student);
 	}
 }
