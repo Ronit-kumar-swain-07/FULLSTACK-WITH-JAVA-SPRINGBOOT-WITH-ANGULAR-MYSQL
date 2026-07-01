@@ -39,4 +39,27 @@ public class StudentImpl implements StudentService {
 		
 		return studentRepository.save(student);
 	}
+
+	
+	@Override
+	public StudentDetails updateStudentDetails(StudentDetails student) {
+		
+		StudentDetails studentObj=getStudentByID(student.getId());
+
+		studentObj.setName(student.getName());
+		
+		studentObj.setAddress(student.getAddress());
+		
+		return studentRepository.save(studentObj);
+		
+	}
+
+	@Override
+	public void deleteStudentDetail(int id) {
+		
+		studentRepository.deleteById(id);
+		
+	}
+	
+	
 }
