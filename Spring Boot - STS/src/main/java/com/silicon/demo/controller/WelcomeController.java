@@ -153,7 +153,7 @@ public class WelcomeController {
 
 		studentService.deleteStudentDetail(id);
 
-		return "Student deleted successfully.";
+		return "Student Record Deleted Successfully.";
 
 	}
 }
