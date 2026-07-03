@@ -1,0 +1,82 @@
+<h2>Student Registration</h2>
+
+<form (ngSubmit)="isEdit ? updateStudent() : saveStudent()">
+
+  <input type="hidden" [(ngModel)]="student.id" name="id">
+
+  <div>
+    <label>Name:</label><br>
+    <input type="text" [(ngModel)]="student.name" name="name" required>
+  </div>
+
+  <br>
+
+  <div>
+    <label>Address:</label><br>
+    <input type="text" [(ngModel)]="student.address" name="address" required>
+  </div>
+
+  <br>
+
+  <button type="submit" *ngIf="!isEdit">
+    Save
+  </button>
+
+  <button type="submit" *ngIf="isEdit">
+    Update
+  </button>
+
+  <button type="button" *ngIf="isEdit" (click)="cancelEdit()">
+    Cancel
+  </button>
+
+</form>
+
+<hr>
+
+<h2>Student List</h2>
+
+<table border="1" cellpadding="10">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let s of students">
+
+      <td>{{ s.id }}</td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.address }}</td>
+
+      <td>
+
+        <button type="button" (click)="editStudent(s)">
+          Edit
+        </button>
+
+        &nbsp;
+
+        <button type="button" (click)="deleteStudent(s.id)">
+          Delete
+        </button>
+
+      </td>
+
+    </tr>
+
+    <tr *ngIf="students.length === 0">
+      <td colspan="4" style="text-align:center;">
+        No Student Records Found
+      </td>
+    </tr>
+
+  </tbody>
+
+</table>
